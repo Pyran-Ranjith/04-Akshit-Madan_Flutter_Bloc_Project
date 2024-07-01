@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, curly_braces_in_flow_control_structures
 
+import 'package:fc_04_akshit_madan_bloc_project/features/home/ui/cart.dart';
+import 'package:fc_04_akshit_madan_bloc_project/features/home/ui/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/home_bloc.dart';
-// import 'package:flutter_bloc_project_one_video_and_you_are_master_of_flutter_bloc/features/home/bloc/home_bloc.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,9 +21,17 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
       bloc: homeBloc,
-      // listenWhen: (previous, current) {},
-      // buildWhen: (previous, current) {},
-      listener: (context, state) {},
+      listenWhen: (previous, current) => current is HomeActionState,
+      buildWhen: (previous, current) => current is! HomeActionState,
+      listener: (context, state) {
+        if (state is HomeNavigateToCartPageActionState) {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Cart()));
+        } else if (state is HomeNavigateToWishlistPageActionState) {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Wishlist()));
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
@@ -36,7 +45,8 @@ class _HomeState extends State<Home> {
               IconButton(
                   onPressed: () {
                     homeBloc.add(HomeProductCartButtonClickedEvent());
-                  }, icon: Icon(Icons.shopping_basket_outlined)),
+                  },
+                  icon: Icon(Icons.shopping_basket_outlined)),
             ],
           ),
         );

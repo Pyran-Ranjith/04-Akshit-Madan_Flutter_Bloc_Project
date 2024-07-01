@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -12,15 +11,29 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeProductWishlistButtonClickedEvent>(
         homeProductWishlistButtonClickedEvent);
     on<HomeProductCartButtonClickedEvent>(homeProductCartButtonClickedEvent);
+    on<HomeWishlistButtonNavigateEvent>(homeWishlistButtonNavigateEvent);
+    on<HomeCartButtonNavigateEvent>(homeCartButtonNavigateEvent);
   }
 
   FutureOr<void> homeProductWishlistButtonClickedEvent(
       HomeProductWishlistButtonClickedEvent event, Emitter<HomeState> emit) {
-    print('WishlisttButton clicked');
+    print('Wishlist Product clicked');
   }
 
   FutureOr<void> homeProductCartButtonClickedEvent(
       HomeProductCartButtonClickedEvent event, Emitter<HomeState> emit) {
-    print('CartButton clicked');
+    print('Cart Product clicked');
+  }
+
+  FutureOr<void> homeWishlistButtonNavigateEvent(
+      HomeWishlistButtonNavigateEvent event, Emitter<HomeState> emit) {
+    print('Wishlist Navigate clicked');
+    emit(HomeNavigateToWishlistPageActionState());
+  }
+
+  FutureOr<void> homeCartButtonNavigateEvent(
+      HomeCartButtonNavigateEvent event, Emitter<HomeState> emit) {
+    print('Cart Navigate clicked');
+    emit(HomeNavigateToCartPageActionState());
   }
 }
