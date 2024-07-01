@@ -8,7 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/home_bloc.dart';
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  // const Home({super.key});
+  const Home({super.key, required this.title});
+  final String title;
 
   @override
   State<Home> createState() => _HomeState();
@@ -29,13 +31,19 @@ class _HomeState extends State<Home> {
               context, MaterialPageRoute(builder: (context) => Cart()));
         } else if (state is HomeNavigateToWishlistPageActionState) {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Wishlist()));
-        }
+              // context, MaterialPageRoute(builder: (context) => Wishlist()));
+                    context, MaterialPageRoute(builder: (context) => Cart()));
+  }
       },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Ranjith Grocery App'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // title: const Text("1st Page"),
+        title: Text(widget.title),
+      // ),
+      // appBar: AppBar(
+      //       title: Text('Ranjith Grocery App'),
             actions: [
               IconButton(
                   onPressed: () {

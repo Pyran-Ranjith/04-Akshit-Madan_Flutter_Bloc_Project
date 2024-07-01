@@ -12,6 +12,15 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      appBar: AppBar(
+        // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.yellow[200],
+        // title: Center(child: Text("Home Page-6")),
+        title: Center(child: Text("Cart")),
+        elevation: 0,
+      ),
+    );
   }
 }

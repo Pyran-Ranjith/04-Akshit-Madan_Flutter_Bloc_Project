@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // title: 'Flutter Demo',
+      title: 'Flutter Demo',
       theme: ThemeData(
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         // useMaterial3: true,
@@ -25,8 +25,9 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.teal,
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: Home(),
-    );
+      // home: Home(),
+      home: const Home(title: 'Ranjith\'s Grocery App'),
+);
   }
 }
 
