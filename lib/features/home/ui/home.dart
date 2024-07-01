@@ -38,12 +38,16 @@ class _HomeState extends State<Home> {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.yellow[200],
+          // backgroundColor: Colors.teal,
+      // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         // title: const Text("1st Page"),
         title: Text(widget.title),
       // ),
       // appBar: AppBar(
       //       title: Text('Ranjith Grocery App'),
+      
             actions: [
               IconButton(
                   onPressed: () {
