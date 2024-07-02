@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, depend_on_referenced_packages
 
 import 'dart:async';
 import 'package:bloc/bloc.dart';
@@ -12,10 +12,14 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
+  // InitialEvent
     on<HomeInitialEvent>(homeInitialEvent);
-    on<HomeProductWishlistButtonClickedEvent>(
-        homeProductWishlistButtonClickedEvent);
+
+  // tButtonClickedEvents
+    on<HomeProductWishlistButtonClickedEvent>(homeProductWishlistButtonClickedEvent);
     on<HomeProductCartButtonClickedEvent>(homeProductCartButtonClickedEvent);
+
+  // NavigateEvents
     on<HomeWishlistButtonNavigateEvent>(homeWishlistButtonNavigateEvent);
     on<HomeCartButtonNavigateEvent>(homeCartButtonNavigateEvent);
   }
